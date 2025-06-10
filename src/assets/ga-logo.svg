@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#1A1A1A">
+    <path d="M50,20 L250,20 L250,80 L50,80 Z" fill="#1A1A1A"/>
+    <text x="150" y="60" font-family="Arial" font-size="40" fill="white" text-anchor="middle">GOLF</text>
+    <text x="150" y="85" font-family="Arial" font-size="20" fill="white" text-anchor="middle">AUSTRALIA</text>
+  </g>
+</svg> 

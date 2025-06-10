@@ -1,38 +1,453 @@
+:root {
+  --primary-color: #0056b3; /* A shade of blue, similar to Golf Australia's header/links */
+  --secondary-color: #f0f0f0; /* Light background for sections */
+  --accent-color: #ffd700; /* A golden yellow for accents, like highlights or buttons */
+  --text-color: #333; /* Dark grey for general text */
+  --light-text-color: #fff; /* White for text on dark backgrounds */
+  --border-color: #ddd; /* Light grey for borders */
+  --font-family-sans: "Arial", sans-serif;
+  --font-family-heading: "Montserrat", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5; /* Light background for the whole page */
+  color: var(--text-color);
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App-header {
+  background-color: var(--primary-color);
+  padding: 20px;
+  color: var(--light-text-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 2em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--light-text-color);
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.login-toggle-button {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-toggle-button:hover {
+  background-color: #e6c200; /* Darker accent on hover */
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: var(--light-text-color);
+  font-size: 1em;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.tab-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button.active {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--light-text-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+}
+
+h2 {
+  color: var(--primary-color);
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 10px;
+  display: inline-block; /* To make the border-bottom only under the text */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #004494; /* Darker shade of blue on hover */
+  transform: translateY(-2px);
+}
+
+button[type="button"] { /* For the Register button */
+  background-color: #6c757d; /* A neutral grey */
+  margin-left: 10px;
+}
+
+button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+/* Results Section Specific Styles */
+.results-section {
+  text-align: left;
+}
+
+.date-selector {
+  margin-bottom: 20px;
+}
+
+.date-selector label {
+  margin-right: 10px;
+}
+
+.date-selector select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1em;
+  background-color: var(--light-text-color);
+}
+
+.results-table-container {
+  margin-top: 20px;
+  overflow-x: auto; /* For responsive tables on small screens */
+}
+
+.results-table-container h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+table th, table td {
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light stripe for readability */
+}
+
+table tr:hover {
+  background-color: #e9e9e9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    margin-top: 15px;
+  }
+
+  .nav-links a {
+    margin: 0 10px;
+  }
+
+  main {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  section {
+    padding: 15px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 480px) {
+  .navbar h1 {
+    font-size: 1.5em;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links a {
+    margin: 0;
+  }
+
+  button {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  button[type="button"] {
+    margin-left: 0;
+  }
+}
+
+.prize-pool-info {
+  background-color: var(--secondary-color);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.prize-pool-info p {
+  margin: 0;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+table tr.winner {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+table tr.winner:hover {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+.home-page {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  padding: 40px 20px;
+}
+
+.hero-section {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.hero-section h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+  font-size: 1.5em;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.primary-button {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  background-color: #e6c200;
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.secondary-button:hover {
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.powered-by {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.powered-by p {
+  margin: 0;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.ga-logo {
+  width: 200px;
+  height: auto;
+  margin-top: 10px;
+  background-color: #1A1A1A;
+  padding: 10px 20px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.ga-logo::before {
+  content: "GOLF";
   color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 2px;
 }
 
-.App-link {
-  color: #61dafb;
+.ga-logo::after {
+  content: "AUSTRALIA";
+  color: white;
+  font-size: 14px;
+  font-weight: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ga-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.ga-text {
+  font-size: 2em;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.australia-text {
+  font-size: 1.2em;
+  color: var(--accent-color);
 }
