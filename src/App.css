@@ -36,7 +36,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  width: 100%;
 }
 
 .navbar h1 {
@@ -107,18 +106,21 @@ body {
 }
 
 main {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 20px auto;
-  padding: 0 20px;
+  padding: 20px;
+  background-color: var(--light-text-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
 
 section {
-  background-color: var(--light-text-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
   padding: 20px;
-  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--secondary-color);
 }
 
 h2 {
@@ -246,7 +248,9 @@ table tr:hover {
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   .navbar {
-    padding: 10px 15px;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
   }
 
   .nav-links {
@@ -274,8 +278,8 @@ table tr:hover {
   }
 
   main {
-    margin: 10px auto;
-    padding: 0 15px;
+    margin: 10px;
+    padding: 15px;
   }
 
   section {
@@ -367,7 +371,7 @@ table tr:hover {
 
 @media (max-width: 480px) {
   .navbar {
-    padding: 8px 12px;
+    padding: 8px;
   }
 
   .nav-links {
@@ -382,8 +386,8 @@ table tr:hover {
   }
 
   main {
-    margin: 8px auto;
-    padding: 0 12px;
+    margin: 8px;
+    padding: 12px;
   }
 
   section {
