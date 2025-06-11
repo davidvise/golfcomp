@@ -243,16 +243,77 @@ table tr:hover {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
-    text-align: center;
+    padding: 10px;
   }
 
   .nav-links {
-    margin-top: 15px;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
   }
 
   .nav-links a {
-    margin: 0 10px;
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5em;
+  }
+
+  .tagline {
+    font-size: 1.2em;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  .powered-by {
+    padding: 15px;
+  }
+
+  .ga-logo {
+    width: 80%;
+    max-width: 200px;
+  }
+
+  .ga-logo::before {
+    font-size: 20px;
+  }
+
+  .ga-logo::after {
+    font-size: 12px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  table th,
+  table td {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .prize-pool-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .prize-pool-info p {
+    text-align: center;
   }
 
   main {
