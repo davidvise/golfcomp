@@ -280,83 +280,108 @@ table tr:hover {
   }
 
   main {
-    margin: 10px auto;
+    margin: 10px;
     padding: 15px;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
   }
 
   section {
     padding: 15px;
+    margin: 10px 0;
+  }
+
+  .form-group {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
 
   .form-group input,
   .form-group select,
   .date-selector select {
-    max-width: 100%;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 16px; /* Prevents zoom on iOS */
   }
 
   .prize-pool-info {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    padding: 10px;
   }
 
   .prize-pool-info p {
     text-align: center;
     width: 100%;
+    margin: 5px 0;
+  }
+
+  .results-table-container {
+    margin: 10px -15px;
+    width: calc(100% + 30px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 600px; /* Ensures table doesn't get too compressed */
+  }
+
+  table th,
+  table td {
+    padding: 12px 8px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  button {
+    width: 100%;
+    max-width: none;
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .hero-section {
+    padding: 20px 15px;
   }
 
   .hero-section h1 {
-    font-size: 2.5em;
+    font-size: 2em;
+    margin-bottom: 15px;
   }
 
   .tagline {
-    font-size: 1.2em;
+    font-size: 1.1em;
+    margin-bottom: 25px;
   }
 
   .cta-buttons {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    padding: 0 20px;
   }
 
   .primary-button,
   .secondary-button {
     width: 100%;
-    padding: 12px 20px;
-  }
-
-  .powered-by {
+    max-width: none;
     padding: 15px;
-  }
-
-  .ga-logo {
-    width: 80%;
-    max-width: 200px;
-  }
-
-  .ga-logo::before {
-    font-size: 20px;
-  }
-
-  .ga-logo::after {
-    font-size: 12px;
-  }
-
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  table th,
-  table td {
-    padding: 8px;
-    font-size: 0.9em;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 480px) {
   .navbar {
     padding: 8px;
+  }
+
+  .navbar h1 {
+    font-size: 1.5em;
   }
 
   .nav-links {
@@ -366,30 +391,31 @@ table tr:hover {
   .nav-links a,
   .login-toggle-button,
   .tab-button {
-    padding: 6px 12px;
-    font-size: 0.9em;
+    padding: 12px;
+    font-size: 14px;
   }
 
   main {
     margin: 8px;
     padding: 12px;
+    width: calc(100% - 16px);
   }
 
   section {
     padding: 12px;
+    margin: 8px 0;
   }
 
-  .date-selector select,
-  input[type="text"],
-  input[type="date"],
-  input[type="email"],
-  input[type="password"] {
-    font-size: 0.9em;
-    padding: 8px;
+  h2 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
   }
 
-  .navbar h1 {
-    font-size: 1.5em;
+  .form-group input,
+  .form-group select,
+  .date-selector select {
+    padding: 10px;
+    font-size: 14px;
   }
 
   .hero-section h1 {
@@ -400,9 +426,28 @@ table tr:hover {
     font-size: 1em;
   }
 
-  .primary-button,
-  .secondary-button {
-    max-width: 240px;
+  .powered-by {
+    padding: 15px 10px;
+  }
+
+  .ga-logo {
+    width: 90%;
+    max-width: 180px;
+  }
+}
+
+/* Add touch-friendly styles */
+@media (hover: none) {
+  button,
+  .tab-button,
+  .login-toggle-button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:active,
+  .tab-button:active,
+  .login-toggle-button:active {
+    transform: scale(0.98);
   }
 }
 
